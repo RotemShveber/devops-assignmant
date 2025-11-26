@@ -1,0 +1,8 @@
+{
+  "name": "devops-assignment",
+  "version": "1.0.0",
+  "description": "simple node.js API for devops-assignment",
+  "scripts": {
+    "start": "node src/server.js"
+  }
+}
