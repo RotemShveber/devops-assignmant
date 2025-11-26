@@ -1,0 +1,13 @@
+name: 'Call Node API'
+description: 'Calls an API endpoint and updates README with the status'
+
+
+inputs:
+  api-url:
+    description: 'The API URL to call (e.g., http://localhost:3000/status)'
+    required: true
+
+
+runs:
+  using: 'node20'
+  main: 'index.js'
