@@ -1,0 +1,35 @@
+name: API Status Check
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  check-api-status:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Start API server
+        run: |
+          npm start &
+          sleep 3
+
+      - name: Call Node API
+        uses: ./.github/actions/call-node-api
+        with:
+          api-url: 'http://localhost:3000/status'
+
+      - name: Commit README changes
+        run: |
+          git config ...
+          git commit ...
+          git push
